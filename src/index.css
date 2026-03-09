@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-ios-bg text-ios-darkText font-sans transition-colors duration-300 antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      @apply bg-ios-black text-white;
+    }
+  }
+}
+
+/* Glassmorphism primitives */
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl shadow-soft;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .glass {
+      @apply bg-white/10 backdrop-blur-xl border border-white/5 shadow-soft;
+    }
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
