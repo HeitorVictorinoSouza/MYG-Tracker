@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { signInWithPopup } from 'firebase/auth';
+import { signInWithRedirect } from 'firebase/auth';
 import { auth, googleProvider } from '../lib/firebase';
 import { Dumbbell, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -19,8 +19,7 @@ export function Login() {
     const handleGoogleLogin = async () => {
         setIsLoading(true);
         try {
-            await signInWithPopup(auth, googleProvider);
-            navigate('/', { replace: true });
+            await signInWithRedirect(auth, googleProvider);
         } catch (error) {
             console.error("Login failed:", error);
             setIsLoading(false);
